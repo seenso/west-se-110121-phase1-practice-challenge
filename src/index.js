@@ -12,8 +12,15 @@ const getCharDetails = (character) => {
     const img = charObj.image;
     const votes = charObj.votes;
 
-    document.getElementById("#name").innerText = "TEST";
-    console.log("NAME DETAIL", document.getElementById("#name").innerText);
+    //reassign name
+    document.getElementById("#name").innerText = name;
+
+    //reassign img
+    const imgSrc = document.getElemetnById();
+    imgSrc.src = img;
+
+    //reassign votes
+    document.getElementById("#voteCount").innerText = votes;
   });
 };
 
