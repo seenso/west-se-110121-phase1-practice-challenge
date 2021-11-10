@@ -31,10 +31,17 @@ const handleVote = () => {
 };
 
 document.addEventListener('DOMContentLoaded', (event) => {
-  event.preventDefault();
+  
+  //display characters
   getCharacters();
+  
   //when character is clicked, show character's details.
   document.querySelector("span").addEventListener("click", () => {
+    event.preventDefault();
     alert("CLICK")
+    getCharDetails();
   });
+  
+  //when vote is added, accumulate total votes
+  document.addEventListener("submit", handleVote());
 });
