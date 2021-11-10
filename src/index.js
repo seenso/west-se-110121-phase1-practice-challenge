@@ -1,12 +1,12 @@
 // Your code here
 const url = "http://localhost:3000";
 
-const getCharDetails = () => {
-  return fetch(url)
-  .then(res => res.json(0))
-  .then(character => {
-    alert("CLICK");
-    console.log("CHARACTER",character);
+const getCharDetails = (character) => {
+  return fetch(url+`/characters/${character.id}`)
+  .then(res => res.json())
+  .then(data => {
+    console.log("getCharDetails has been invoked!");
+    console.log("DATA",data);
   });
 };
 
@@ -28,17 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
     //loop through characters array and create <span></span> for each character.
     characters.forEach(character => {
       //Add each character to charBar.
-      // document.querySelector("div#character-bar").innerHTML += `<span class="characters">${character.name}</span>`;
-      
-
-      //new approach - create nodes and not innerHTML
       let charNode = document.createElement("span");
       charNode.innerText = character.name;
       document.querySelector("div#character-bar").appendChild(charNode);
 
-
       //Add event listener to each character so it shows character details when clicked
-      charNode.addEventListener("click", () => console.log("CLICK"));
+      charNode.addEventListener("click", () => {
+        console.log("Character has been clicked!");
+        getCharDetails(character);
+      });
     
     });
   });
