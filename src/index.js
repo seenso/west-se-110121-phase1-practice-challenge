@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //when vote is added, accumulate total votes
-// document.getElementById("#votes-form").addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   alert("I VOTED")
-// });
+document.getElementById("#votes-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  alert("I VOTED")
+});
