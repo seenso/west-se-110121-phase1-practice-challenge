@@ -8,13 +8,16 @@ const getCharacters = () => {
   .then(characters => {
     //loop through characters array and create <span></span> for each character.
     characters.forEach(character => {
-      let name = character.name;
       //Add each character to charBar.
-      document.querySelector("div#character-bar").innerHTML += `<span>${name}</span>`;
+      document.querySelector("div#character-bar").innerHTML += `<span class="characters" id="${character.id}">${character.name}</span>`;
     });
-
-    console.log("CHARBAR", document.querySelector("div#character-bar").innerHTML);
   });
+};
+
+const getCharDetails = () => {
+  return fetch(url)
+  .then(res => res.json(0))
+  .then(character);
 };
 
 const handleVote = () => {
@@ -30,4 +33,8 @@ const handleVote = () => {
 document.addEventListener('DOMContentLoaded', (event) => {
   event.preventDefault();
   getCharacters();
+  //when character is clicked, show character's details.
+  document.querySelector("span").addEventListener("click", () => {
+    alert("CLICK")
+  });
 });
