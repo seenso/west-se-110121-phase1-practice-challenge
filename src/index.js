@@ -4,9 +4,16 @@ const url = "http://localhost:3000";
 const getCharDetails = (character) => {
   return fetch(url+`/characters/${character.id}`)
   .then(res => res.json())
-  .then(data => {
+  .then(charObj => {
     console.log("getCharDetails has been invoked!");
-    console.log("DATA",data);
+    console.log("DATA",charObj);
+    //add Character name, image and vote count to detail
+    const name = charObj.name;
+    const img = charObj.image;
+    const votes = charObj.votes;
+
+    document.getElementById("#name").innerText = "TEST";
+    console.log("NAME DETAIL", document.getElementById("#name").innerText);
   });
 };
 
